@@ -22,8 +22,6 @@ module FrOData
       # @param of: [int] batch size
       # @return [Enumerator]
       def in_batches(of: DEFAULT_BATCH_SIZE, &block)
-        per_page = of
-
         if block_given?
           each_batch(of, &block)
         else
@@ -41,10 +39,10 @@ module FrOData
         page = 0
 
         loop do
-          batch = get_paginated_entities(per_page, page)
-          break if batch.empty?
+          batch_page_response = get_paginated_entities(per_page, page)
+          break if batch_page_response.empty?
 
-          yield batch
+          yield batch_page_response
 
           page += 1
         end
