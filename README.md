@@ -118,7 +118,7 @@ For instance, if your service requires HTTP basic authentication:
   service = FrOData::Service.new('http://services.odata.org/V4/OData/OData.svc', {
     name: 'ODataDemo'
   }) do |conn|
-    conn.basic_auth('username', 'password')
+    conn.request :basic_auth, 'username', 'password'
   end
 ```
 
