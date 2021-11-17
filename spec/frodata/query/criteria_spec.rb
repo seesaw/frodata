@@ -113,14 +113,14 @@ describe FrOData::Query::Criteria do
       let(:criteria) { subject.tolower.eq('alfreds futterkiste') }
 
       it { expect(subject).to respond_to(:tolower) }
-      it_behaves_like 'an operator-function criterium', :tolower, :eq, 'alfreds futterkiste', "tolower(Name) eq 'alfreds futterkiste'"
+      it_behaves_like 'an operator-function criterium', :tolower, :eq, 'alfreds futterkiste', "tolower(Name) eq 'alfreds%20futterkiste'"
     end
 
     describe '#toupper' do
       let(:criteria) { subject.toupper.eq('ALFREDS FUTTERKISTE') }
 
       it { expect(subject).to respond_to(:toupper) }
-      it_behaves_like 'an operator-function criterium', :toupper, :eq, 'ALFREDS FUTTERKISTE', "toupper(Name) eq 'ALFREDS FUTTERKISTE'"
+      it_behaves_like 'an operator-function criterium', :toupper, :eq, 'ALFREDS FUTTERKISTE', "toupper(Name) eq 'ALFREDS%20FUTTERKISTE'"
     end
   end
 

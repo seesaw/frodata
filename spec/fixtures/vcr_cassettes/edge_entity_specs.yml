@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://services.odata.org/V4/OData/OData.svc/$metadata
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      DataServiceVersion:
+      - '3.0'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Length:
+      - '6742'
+      Content-Type:
+      - application/xml;charset=utf-8
+      Server:
+      - Microsoft-IIS/8.0
+      X-Content-Type-Options:
+      - nosniff
+      OData-Version:
+      - 4.0;
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Accept, Origin, Content-Type, MaxDataServiceVersion
+      Access-Control-Expose-Headers:
+      - DataServiceVersion
+      Date:
+      - Wed, 22 Nov 2017 22:11:38 GMT
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0"><edmx:DataServices><Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ODataDemo"><EntityType Name="Product"><Key><PropertyRef Name="ID" /></Key><Property Name="ID" Type="Edm.Int32" Nullable="false" /><Property Name="Name" Type="Edm.String" /><Property Name="Description" Type="Edm.String" /><Property Name="ReleaseDate" Type="Edm.DateTimeOffset" Nullable="false" /><Property Name="DiscontinuedDate" Type="Edm.DateTimeOffset" /><Property Name="Rating" Type="Edm.Int16" Nullable="false" /><Property Name="Price" Type="Edm.Double" Nullable="false" /><NavigationProperty Name="Categories" Type="Collection(ODataDemo.Category)" Partner="Products" /></EntityType><EntityType Name="Category" OpenType="true"><Key><PropertyRef Name="Code" /></Key><Property Name="Code" Type="Edm.String" Nullable="false" /><Property Name="Name" Type="Edm.String" /><NavigationProperty Name="Products" Type="Collection(ODataDemo.Product)" Partner="Categories" /></EntityType><EntityContainer Name="DemoService"><EntitySet Name="Products" EntityType="ODataDemo.Product"><NavigationPropertyBinding Path="ODataDemo.FeaturedProduct/Advertisement" Target="Advertisements" /><NavigationPropertyBinding Path="Categories" Target="Categories" /></EntitySet><EntitySet Name="Categories" EntityType="ODataDemo.Category"><NavigationPropertyBinding Path="Products" Target="Products" /></EntitySet></EntityContainer><Annotations Target="ODataDemo.DemoService"><Annotation Term="Org.OData.Display.V1.Description" String="This is a sample OData service with vocabularies" /></Annotations><Annotations Target="ODataDemo.Product"><Annotation Term="Org.OData.Display.V1.Description" String="All Products available in the online store" /></Annotations><Annotations Target="ODataDemo.Product/Name"><Annotation Term="Org.OData.Display.V1.DisplayName" String="Product Name" /></Annotations></Schema></edmx:DataServices></edmx:Edmx>
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: http://services.odata.org/V4/OData/OData.svc/$metadata
+  recorded_at: Wed, 22 Nov 2017 22:11:41 GMT
