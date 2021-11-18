@@ -22,7 +22,7 @@ module FrOData
       # Value to be used in URLs.
       # @return [String]
       def url_value
-        "'#{value}'"
+        "'#{ERB::Util.url_encode value}'"
       end
 
       # The FrOData type name

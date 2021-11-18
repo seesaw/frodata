@@ -1,4 +1,5 @@
-# coding: utf-8
+# frozen_string_literal: true
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'frodata/version'
@@ -18,19 +19,19 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = %w{lib}
 
-  spec.required_ruby_version = '>= 2.2.0'
+  spec.required_ruby_version = '>= 2.6'
 
-  spec.add_dependency 'faraday',  '~> 1.0.1'
-  spec.add_dependency 'nokogiri', '~> 1.8'
+  spec.add_dependency 'faraday',  '~> 1.8'
+  spec.add_dependency 'nokogiri', '~> 1.12.0'
   spec.add_dependency 'andand',   '~> 1.3'
 
-  spec.add_development_dependency 'bundler', '~> 2'
-  spec.add_development_dependency 'rake', '~> 0'
-  spec.add_development_dependency 'simplecov', '~> 0.15'
-  spec.add_development_dependency 'rspec', '~> 3.7'
-  spec.add_development_dependency 'rspec-autotest', '~> 1.0'
-  spec.add_development_dependency 'autotest', '~> 4.4'
-  spec.add_development_dependency 'vcr', '~> 4.0'
+  spec.add_development_dependency 'bundler', '~> 2.2'
+  spec.add_development_dependency 'rake', '~> 13'
+  spec.add_development_dependency 'simplecov', '~> 0.21'
+  spec.add_development_dependency 'rspec', '~> 3.10'
+  spec.add_development_dependency 'rspec-autotest'
+  spec.add_development_dependency 'autotest', '~> 5.0'
+  spec.add_development_dependency 'vcr', "~> 6.0"
   spec.add_development_dependency 'timecop', '~> 0.9'
   spec.add_development_dependency 'equivalent-xml', '~> 0.6'
 end

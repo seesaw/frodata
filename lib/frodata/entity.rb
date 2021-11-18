@@ -207,7 +207,11 @@ module FrOData
       @id ||= lambda {
         entity_set = self.entity_set.andand.name
         entity_set ||= context.split('#').last.split('/').first
-        "#{entity_set}(#{self[primary_key]})"
+
+        key = schema.properties_for_entity(name)[primary_key]
+        key.value = self[primary_key]
+
+        "#{entity_set}(#{key.url_value})"
       }.call
     end
 

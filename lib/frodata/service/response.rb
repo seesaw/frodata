@@ -43,19 +43,19 @@ module FrOData
       end
 
       def is_atom?
-        content_type =~ /#{Regexp.escape FrOData::Service::MIME_TYPES[:atom]}/
+        /#{Regexp.escape FrOData::Service::MIME_TYPES[:atom]}/.match? content_type
       end
 
       def is_json?
-        content_type =~ /#{Regexp.escape FrOData::Service::MIME_TYPES[:json]}/
+        /#{Regexp.escape FrOData::Service::MIME_TYPES[:json]}/.match? content_type
       end
 
       def is_plain?
-        content_type =~ /#{Regexp.escape FrOData::Service::MIME_TYPES[:plain]}/
+        /#{Regexp.escape FrOData::Service::MIME_TYPES[:plain]}/.match? content_type
       end
 
       def is_xml?
-        content_type =~ /#{Regexp.escape FrOData::Service::MIME_TYPES[:xml]}/
+        /#{Regexp.escape FrOData::Service::MIME_TYPES[:xml]}/.match? content_type
       end
 
       # Whether the response contained any entities.

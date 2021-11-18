@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## unreleased
+
+* response type check returns boolean instead integer
+* Broken properties (FrOData::Properties::Double) tests fixed
+* Development dependencies updated
+* Nokogiri gem updated to v1.12.x
+* Faraday gem updated to v1.8.x
+* Require Ruby 2.6+ in gemspec
+
 ## 0.9.3
 
 * Fix broken stack traces in response errors
