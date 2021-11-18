@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/seesaw/frodata/tree/s%26m.svg?style=svg)](https://circleci.com/gh/seesaw/frodata/tree/s%26m)
+
 # FrOData - Free OData V4.0 library for Ruby
 
 ### Happy Little Entities
