@@ -229,7 +229,7 @@ module FrOData
     def default_connection(&block)
       Faraday.new(service_url, options[:connection] || {}) do |conn|
         conn.request :url_encoded
-        conn.response :logger, logger
+        conn.response :logger, logger, options[:logger_options] || {}
         yield conn if block_given?
         conn.adapter Faraday.default_adapter unless conn.builder.send(:adapter_set?)
       end
