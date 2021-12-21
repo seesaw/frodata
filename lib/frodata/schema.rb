@@ -146,6 +146,7 @@ module FrOData
         raise RuntimeError, "Unknown property type: #{property_type}"
       else
         property_options[:allows_nil] = false if property_xml.attributes['Nullable'] == 'false'
+        property_options[:max_length] = property_xml.attributes['MaxLength'].value.to_i if property_xml.attributes['MaxLength']
         property = klass.new(property_name, nil, property_options)
       end
 
