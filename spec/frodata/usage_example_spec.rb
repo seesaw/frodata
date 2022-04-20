@@ -175,18 +175,15 @@ describe 'Usage examples', vcr: { cassette_name: 'usage_example_specs' } do
   end
 
   describe 'headers and authorization' do
-    it 'using HTTP Basic auth' do
-      service = FrOData::Service.new(service_url, name: 'ODataDemo') do |connection|
-        connection.request :basic_auth, 'username', 'password'
-      end
-      expect(service['Products'][2]).to be_a(FrOData::Entity)
+    let(:basic_auth_service) { FrOData::Service.new(service_url, name: 'ODataDemo') {|conn| conn.request(:authorization, :basic, 'username', 'password')} }
+    let(:token_auth_service) { FrOData::Service.new(service_url, name: 'ODataDemo') {|conn| conn.request(:authorization, 'Bearer', 'token')} }
+
+    it 'using HTTP Basic auth' do  
+      expect(basic_auth_service['Products'][2]).to be_a(FrOData::Entity)
     end
 
     it 'using token auth' do
-      service = FrOData::Service.new(service_url, name: 'ODataDemo') do |connection|
-        connection.request :authorization, 'Bearer', 'token'
-      end
-      expect(service['Products'][3]).to be_a(FrOData::Entity)
+      expect(token_auth_service['Products'][3]).to be_a(FrOData::Entity)
     end
   end
 end
